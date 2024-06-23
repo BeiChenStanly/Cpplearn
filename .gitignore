@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+/.vs/Cpplearn
+/bin/intermediates/x64
+/mole/x64/Debug
