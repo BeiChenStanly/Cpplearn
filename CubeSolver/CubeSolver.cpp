@@ -1,6 +1,7 @@
 ﻿#include <string>
 #include <chrono>
 #include <iostream>
+#include <random>
 using namespace std;
 
 typedef enum { URF, UFL, ULB, UBR, DFR, DLF, DBL, DRB } 	Corner;
@@ -811,7 +812,7 @@ Cube getcube1() { //通过色相获取魔方初始状态
 }
 
 
-Cube getcube2() { //通过打乱公式获取魔方初始状态
+Cube getcube2(string a) { //通过打乱公式获取魔方初始状态
 	Cube ans;
 	for (int i = 0; i <= 7; i++) {
 		ans.co[i].c = Corner(i);
@@ -822,9 +823,7 @@ Cube getcube2() { //通过打乱公式获取魔方初始状态
 		ans.eo[i].o = 0;
 	}
 
-	string a;
-	getline(cin, a);
-	getline(cin, a);
+	
 	a = a + " ";
 	int len = a.length();
 	int hou = -1, qian = 0;
@@ -865,7 +864,6 @@ Cube getcube2() { //通过打乱公式获取魔方初始状态
 			}
 			for (int i = 1; i <= ci; i++)
 				ans = cubeMove(ans, lei);
-
 		}
 
 	}
@@ -900,12 +898,7 @@ void search2(int CP, int EP1, int EP2, int cnt, int togo2) { //阶段二的搜�
 			minn = ans.len;
 			flag = 1;
 			pan[cnt]--;
-			if (ans.len <= 22)
-			{
-				cout << "已经搜索到22步(包含)之内的解法,已用时间："  << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count() << "ms" << endl;
-				system("pause");
-				std::exit(0);
-			}
+			cout << "耗时:" << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count() << "ms" << endl;
 		}
 		return;
 	}
@@ -988,6 +981,35 @@ void search1(int twist, int flip, int slice, int togo1) { //阶段一的搜索
 }
 typedef enum { g, w, o, r, y, b } color;
 
+int Test(int times)
+{
+	random_device rd;
+	mt19937 gen(rd());
+	string a[] = { "U", "U2", "U'", "D", "D2", "D'", "L", "L2", "L'", "R", "R2", "R'", "F", "F2", "F'", "B", "B2", "B'" };
+	string s = "R";
+	for (int i = 0; i < times; i++)
+	{
+		for (int j = 0; j < 18; j++)
+		{
+			uniform_int_distribution<int> dis(0, 17);
+			s = s + " " + a[dis(gen)];
+		}
+		Cube c = getcube2(s);
+		cout << "开始求解" << endl;
+		start = std::chrono::steady_clock::now();
+		int twist = idcornero(initc);
+		int flip = idedgeo(initc);
+		int slice = idslice(initc);
+		initccp = idcornerp(initc);
+		initcep1 = idedgep(initc);
+		initcep2 = idedgez(initc);
+		int x = max(max(PruneTable1[twist], PruneTable2[flip]), PruneTable3[slice]);
+		for (int i = x; i <= minn; i++) {
+			search1(twist, flip, slice, i);
+		}
+	}
+}
+
 int main() {
 
 	//{URF,UFL,ULB,UBR,DFR,DLF,DBL,DRB}
@@ -1064,7 +1086,10 @@ int main() {
 	}
 	if (n == 2) {
 		cout << "请将所有打乱公式输入到一行，示例 U(顶层顺时针),U'(右上角的'为英文的)(顶层逆时针),U2(顶层180°)UDLRFB" << endl;
-		initc = getcube2();
+		string a;
+		getline(cin, a);
+		getline(cin, a);
+		initc = getcube2(a);
 		ans.xulie[0] = 7890;
 		cout << "开始求解" << endl;
 		start = std::chrono::steady_clock::now();
