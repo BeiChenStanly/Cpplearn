@@ -93,17 +93,28 @@ int idedgez(Cube x) { //中间层棱块位置排列编码
 	return idez;
 }
 int jie[10] = { 1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880 };
+// 定义一个函数paijiao，参数为一个整数x
 Cube paijiao(int x) {
+	// 定义一个Cube类型的变量a
 	Cube a;
+	// 定义一个整数数组pan，大小为8，初始值为0
 	int pan[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
+	// 从7开始，倒序遍历数组pan
 	for (int i = 7; i >= 0; i--) {
+		// 计算整数s，s等于x除以jie[i]的商
 		int s = x / jie[i];
+		// x等于x除以jie[i]的余数
 		x = x % jie[i];
+		// 计算整数shu，shu等于s加1
 		int shu = s + 1;
+		// 从7开始，倒序遍历数组pan
 		for (int j = 7; j >= 0; j--) {
+			// 如果pan[j]等于1，则继续循环
 			if (pan[j] == 1)
 				continue;
+			// shu减1
 			shu--;
+			// 如果shu等于0，则将a.co[i].c设置为Corner(j)，并将pan[j]设置为1
 			if (shu == 0) {
 				a.co[i].c = Corner(j);
 				pan[j] = 1;
@@ -111,6 +122,7 @@ Cube paijiao(int x) {
 		}
 
 	}
+	// 返回变量a
 	return a;
 }
 
