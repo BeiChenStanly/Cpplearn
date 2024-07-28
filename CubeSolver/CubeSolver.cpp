@@ -898,7 +898,11 @@ void search2(int CP, int EP1, int EP2, int cnt, int togo2) { //阶段二的搜�
 			minn = ans.len;
 			flag = 1;
 			pan[cnt]--;
-			cout << "耗时:" << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count() << "ms" << endl;
+			if (ans.len <= 21)
+			{
+				cout << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count() <<"ms"<<endl;
+				return;
+			}
 		}
 		return;
 	}
@@ -928,7 +932,6 @@ void search2(int CP, int EP1, int EP2, int cnt, int togo2) { //阶段二的搜�
 		}
 	}
 	return;
-
 }
 
 void search1(int twist, int flip, int slice, int togo1) { //阶段一的搜索
@@ -981,35 +984,6 @@ void search1(int twist, int flip, int slice, int togo1) { //阶段一的搜索
 }
 typedef enum { g, w, o, r, y, b } color;
 
-int Test(int times)
-{
-	random_device rd;
-	mt19937 gen(rd());
-	string a[] = { "U", "U2", "U'", "D", "D2", "D'", "L", "L2", "L'", "R", "R2", "R'", "F", "F2", "F'", "B", "B2", "B'" };
-	string s = "R";
-	for (int i = 0; i < times; i++)
-	{
-		for (int j = 0; j < 18; j++)
-		{
-			uniform_int_distribution<int> dis(0, 17);
-			s = s + " " + a[dis(gen)];
-		}
-		Cube c = getcube2(s);
-		cout << "开始求解" << endl;
-		start = std::chrono::steady_clock::now();
-		int twist = idcornero(initc);
-		int flip = idedgeo(initc);
-		int slice = idslice(initc);
-		initccp = idcornerp(initc);
-		initcep1 = idedgep(initc);
-		initcep2 = idedgez(initc);
-		int x = max(max(PruneTable1[twist], PruneTable2[flip]), PruneTable3[slice]);
-		for (int i = x; i <= minn; i++) {
-			search1(twist, flip, slice, i);
-		}
-	}
-}
-
 int main() {
 
 	//{URF,UFL,ULB,UBR,DFR,DLF,DBL,DRB}
@@ -1061,7 +1035,8 @@ int main() {
 	cout << "请选择表述魔方的初始状态的方式" << endl;
 	cout << "方式一:输入魔方六个面的颜色" << endl;
 	cout << "方式二:输入标准打乱公式" << endl;
-	cout << "选择方式一请输入 1，选择方式二请输入 2" << endl;
+	cout << "方式三:随机生成魔方并测试时间" << endl;
+	cout << "选择方式一请输入 1，选择方式二请输入 2，选择方式三请输入 3" << endl;
 	cin >> n;
 	if (n == 1) {
 		cout << "请输入魔方六个面的色块颜色，标准魔方配色（黄，白，蓝，绿，红，橙）分别用 y,w,b,g,r,o 表示" << endl;
@@ -1102,6 +1077,39 @@ int main() {
 		int x = max(max(PruneTable1[twist], PruneTable2[flip]), PruneTable3[slice]);
 		for (int i = x; i <= minn; i++) {
 			search1(twist, flip, slice, i);
+		}
+	}
+	if (n == 3) {
+		cout << "请输入测试次数" << endl;
+		int cishu;
+		cin >> cishu;
+		cout << "开始测试" << endl;
+		random_device rd;
+		mt19937 gen(rd());
+		string a[] = { "U", "U2", "U'", "D", "D2", "D'", "L", "L2", "L'", "R", "R2", "R'", "F", "F2", "F'", "B", "B2", "B'" };
+		string s = "R";
+		for (int i = 0; i < cishu; i++)
+		{
+			for (int j = 0; j < 18; j++)
+			{
+				uniform_int_distribution<int> dis(0, 17);
+				s = s + " " + a[dis(gen)];
+			}
+			cout << s << endl;
+			initc = getcube2(s);
+			ans.xulie[0] = 7890;
+			cout << "开始求解" << endl;
+			start = std::chrono::steady_clock::now();
+			int twist = idcornero(initc);
+			int flip = idedgeo(initc);
+			int slice = idslice(initc);
+			initccp = idcornerp(initc);
+			initcep1 = idedgep(initc);
+			initcep2 = idedgez(initc);
+			int x = max(max(PruneTable1[twist], PruneTable2[flip]), PruneTable3[slice]);
+			for (int i = x; i <= minn; i++) {
+				search1(twist, flip, slice, i);
+			}
 		}
 	}
 	return 0;

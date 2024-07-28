@@ -1,0 +1,25 @@
+﻿  CubeSolver.cpp
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(295,12): warning C4101: “m”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(295,9): warning C4101: “j”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(295,6): warning C4101: “i”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(314,12): warning C4101: “m”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(314,9): warning C4101: “j”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(314,6): warning C4101: “i”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(333,12): warning C4101: “m”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(333,9): warning C4101: “j”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(333,6): warning C4101: “i”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(352,12): warning C4101: “m”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(352,9): warning C4101: “j”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(352,6): warning C4101: “i”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(370,12): warning C4101: “m”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(370,9): warning C4101: “j”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(370,6): warning C4101: “i”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(388,12): warning C4101: “m”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(388,9): warning C4101: “j”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(388,6): warning C4101: “i”: 未引用的局部变量
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(828,10): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(586): warning C4715: “tranint”: 不是所有的控件路径都返回值
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(690): warning C4715: “lengkuai”: 不是所有的控件路径都返回值
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(717): warning C4715: “zhongji”: 不是所有的控件路径都返回值
+D:\Cpplearn\CubeSolver\CubeSolver.cpp(638): warning C4715: “jiaokuai”: 不是所有的控件路径都返回值
+  CubeSolver.vcxproj -> D:\Cpplearn\x64\Debug\CubeSolver.exe
