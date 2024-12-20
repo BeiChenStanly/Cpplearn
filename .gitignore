@@ -33,3 +33,6 @@
 /.vs/Cpplearn
 /bin/intermediates/x64
 /mole/x64/Debug
+
+.fake
+/.vscode
