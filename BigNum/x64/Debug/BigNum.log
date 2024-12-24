@@ -1,0 +1,17 @@
+﻿  bignum.cpp
+D:\Cpplearn\BigNum\bignum.cpp(5,11): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\BigNum\bignum.cpp(42,16): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\BigNum\bignum.cpp(108,27): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\BigNum\bignum.cpp(116,31): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\BigNum\bignum.cpp(129,17): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\BigNum\bignum.cpp(141,46): warning C4267: “-=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\BigNum\bignum.cpp(281,9): error C2678: 二进制“=”: 没有找到接受“const bignum”类型的左操作数的运算符(或没有可接受的转换)
+      D:\Cpplearn\BigNum\bignum.cpp(201,13):
+      可能是“bignum &bignum::operator =(const bignum &)”
+      D:\Cpplearn\BigNum\bignum.cpp(281,9):
+      尝试匹配参数列表“(const bignum, bignum)”时
+  
+D:\Cpplearn\BigNum\bignum.cpp(282,16): error C2440: “return”: 无法从“const bignum”转换为“bignum &”
+      D:\Cpplearn\BigNum\bignum.cpp(282,16):
+      转换丢失限定符
+  

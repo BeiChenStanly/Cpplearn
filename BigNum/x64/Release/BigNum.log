@@ -1,0 +1,12 @@
+﻿  bignum.cpp
+D:\Cpplearn\BigNum\bignum.cpp(5,8): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\BigNum\bignum.cpp(29,13): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\BigNum\bignum.cpp(95,21): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\BigNum\bignum.cpp(103,25): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\BigNum\bignum.cpp(116,11): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Cpplearn\BigNum\bignum.cpp(128,31): warning C4267: “-=”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 197 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  BigNum.vcxproj -> D:\Cpplearn\x64\Release\BigNum.exe
